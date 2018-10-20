@@ -146,9 +146,7 @@ stock TDS_SetString_PTD(playerid, PlayerText:index, string[])
 		PlayerText:textid;
 
 		
-	if((tmp = Pointer:MEM_get_val(p, TD_INDEX_TEXT)) != MEM_NULLPTR)
-		MEM_delete(tmp);
-
+	MEM_delete(Pointer:MEM_get_val(p, TD_INDEX_TEXT));
 	MEM_set_val(p, TD_INDEX_TEXT, _:MEM_new_arr(string, strlen(string) + 1));
 
 	PlayerTextDrawSetString(playerid, textid, string);	
