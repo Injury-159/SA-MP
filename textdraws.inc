@@ -587,7 +587,7 @@ static stock PlayerText:TDS_Process_PTD(playerid, PlayerText:textid, bool:update
 
 
 #if defined _ALS_PlayerTextDrawSetPos
-  #undef PlayerTextDrawGetPos
+  #undef PlayerTextDrawSetPos
 #else
 #define _ALS_PlayerTextDrawSetPos
 #endif
