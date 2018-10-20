@@ -125,7 +125,7 @@ stock TDS_Destroy_PTD(playerid, PlayerText:index)
 	if(!TDS_Valid_PTD(playerid, index))
 		return 0;
 
-	PlayerTextDrawDestroy(playerid, textid);
+	PlayerTextDrawDestroy(playerid, index);
 
 	MEM_delete(Pointer:MEM_get_val(Pointer_PTDs[playerid][_:index], TD_INDEX_TEXT));	
 	MEM_delete(Pointer_PTDs[playerid][index]);
@@ -141,15 +141,13 @@ stock TDS_SetString_PTD(playerid, PlayerText:index, string[])
 		return 0;
 
 	new 
-		Pointer:tmp, 
-		Pointer:p = Pointer_PTDs[playerid][_:index],
-		PlayerText:textid;
+		Pointer:p = Pointer_PTDs[playerid][_:index];
 
 		
 	MEM_delete(Pointer:MEM_get_val(p, TD_INDEX_TEXT));
 	MEM_set_val(p, TD_INDEX_TEXT, _:MEM_new_arr(string, strlen(string) + 1));
 
-	PlayerTextDrawSetString(playerid, textid, string);	
+	PlayerTextDrawSetString(playerid, index, string);	
 	return 1;		
 }
 
@@ -193,7 +191,7 @@ stock TDS_SetLetterSize_PTD(playerid, PlayerText:index, Float:lx, Float:ly)
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_LX, _:lx);
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_LY, _:ly);
 
-	PlayerTextDrawLetterSize(playerid, textid, lx, ly);
+	PlayerTextDrawLetterSize(playerid, index, lx, ly);
 	return 1;		
 }
 
@@ -215,7 +213,7 @@ stock TDS_SetTextSize_PTD(playerid, PlayerText:index, Float:tx, Float:ty)
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_TX, _:tx);
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_TY, _:ty);
 
-	PlayerTextDrawTextSize(playerid, textid, tx, ty);
+	PlayerTextDrawTextSize(playerid, index, tx, ty);
 	return 1;		
 }
 
@@ -237,7 +235,7 @@ stock TDS_SetColor_PTD(playerid, PlayerText:index, color)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_COLOR, color);
 
-	PlayerTextDrawColor(playerid, textid, color);
+	PlayerTextDrawColor(playerid, index, color);
 	return 1;		
 }
 
@@ -256,7 +254,7 @@ stock TDS_SetFont_PTD(playerid, PlayerText:index, font)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_FONT, font);
 
-	PlayerTextDrawFont(playerid, textid, font);
+	PlayerTextDrawFont(playerid, index, font);
 	return 1;		
 }
 
@@ -275,7 +273,7 @@ stock TDS_SetBackColor_PTD(playerid, PlayerText:index, backcolor)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_BACK_COLOR, backcolor);
 
-	PlayerTextDrawBackgroundColor(playerid, textid, backcolor);
+	PlayerTextDrawBackgroundColor(playerid, index, backcolor);
 	return 1;		
 }
 
@@ -294,7 +292,7 @@ stock TDS_SetUseBox_PTD(playerid, PlayerText:index, usebox)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_BOX, !!usebox);
 
-	PlayerTextDrawUseBox(playerid, textid, !!usebox);
+	PlayerTextDrawUseBox(playerid, index, !!usebox);
 	return 1;
 }
 
@@ -313,7 +311,7 @@ stock TDS_SetBoxColor_PTD(playerid, PlayerText:index, boxcolor)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_BOX_COLOR, boxcolor);
 
-	PlayerTextDrawBoxColor(playerid, textid, boxcolor);
+	PlayerTextDrawBoxColor(playerid, index, boxcolor);
 	return 1;		
 }
 
@@ -332,7 +330,7 @@ stock TDS_SetSelectable_PTD(playerid, PlayerText:index, select)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_SELECTED, !!select);
 
-	PlayerTextDrawSetSelectable(playerid, textid, !!select);
+	PlayerTextDrawSetSelectable(playerid, index, !!select);
 	return 1;		
 }
 
@@ -351,7 +349,7 @@ stock TDS_SetProportional_PTD(playerid, PlayerText:index, proportional)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_PROPORTIONAL, !!proportional);
 
-	PlayerTextDrawSetProportional(playerid, textid, !!proportional);
+	PlayerTextDrawSetProportional(playerid, index, !!proportional);
 	return 1;		
 }
 
@@ -370,7 +368,7 @@ stock TDS_SetAlignment_PTD(playerid, PlayerText:index, alignment)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_ALIGNMENT, alignment);
 
-	PlayerTextDrawAlignment(playerid, textid, alignment);
+	PlayerTextDrawAlignment(playerid, index, alignment);
 	return 1;		
 }
 
@@ -389,7 +387,7 @@ stock TDS_SetShadow_PTD(playerid, PlayerText:index, shadow)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_SHADOW, shadow);
 
-	PlayerTextDrawSetShadow(playerid, textid, shadow);
+	PlayerTextDrawSetShadow(playerid, index, shadow);
 	return 1;		
 }
 
@@ -408,7 +406,7 @@ stock TDS_SetOutline_PTD(playerid, PlayerText:index, outline)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_OUTLINE, outline);
 
-	PlayerTextDrawSetOutline(playerid, textid, outline);
+	PlayerTextDrawSetOutline(playerid, index, outline);
 	return 1;		
 }
 
@@ -427,7 +425,7 @@ stock TDS_SetPrevModel_PTD(playerid, PlayerText:index, modelid)
 
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_MODEL_ID, modelid);
 
-	PlayerTextDrawSetPreviewModel(playerid, textid, modelid);
+	PlayerTextDrawSetPreviewModel(playerid, index, modelid);
 	return 1;		
 }
 
@@ -449,7 +447,7 @@ stock TDS_SetPrevModelRot_PTD(Text:index, Float:rx, Float:ry, Float:rz, Float:zo
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_MODEL_RZ, _:rz);
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_MODEL_ZOOM, _:zoom);
 
-	PlayerTextDrawSetPreviewRot(playerid, textid, rx, ry, rz, zoom);
+	PlayerTextDrawSetPreviewRot(playerid, index, rx, ry, rz, zoom);
 	return 1;
 }
 
@@ -473,7 +471,7 @@ stock TDS_SetPrevModelVehCol_PTD(Text:index, color1, color2)
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_MODEL_VEH_1, color1);
 	MEM_set_val(Pointer_PTDs[playerid][_:index], TD_INDEX_MODEL_VEH_2, color2);
 
-	PlayerTextDrawSetPreviewVehCol(playerid, textid, color1, color2);
+	PlayerTextDrawSetPreviewVehCol(playerid, index, color1, color2);
 	return 1;
 }
 
