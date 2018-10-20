@@ -487,7 +487,7 @@ stock TDS_GetPrevModelVehCol_PTD(playerid, PlayerText:index, &color1, &color2)
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————————
 
-# INERNAL FUNCTIONS PLAYER TEXT DRAWS
+# INTERNAL PLAYER TEXT DRAWS
 
 ————————————————————————————————————————————————————————————————————————————————————————————————— */
 
@@ -1251,7 +1251,7 @@ stock TDS_GetPrevModelVehCol_TD(Text:index, &color1, &color2)
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————————
 
-# INERNAL FUNCTIONS PLAYER TEXT DRAWS
+# INTERNAL GLOBAL TEXT DRAWS
 
 ————————————————————————————————————————————————————————————————————————————————————————————————— */
 
